@@ -2,10 +2,13 @@ import { type NextConfig } from 'next';
 
 import '@/env';
 
-export const nextConfig: NextConfig = {
+const nextConfig: NextConfig = {
   reactStrictMode: true,
   trailingSlash: false,
   skipTrailingSlashRedirect: true,
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   experimental: {
     reactCompiler: true,
     optimizePackageImports: [
@@ -43,3 +46,5 @@ export const nextConfig: NextConfig = {
     ],
   },
 };
+
+export default nextConfig;

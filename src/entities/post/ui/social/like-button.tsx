@@ -65,7 +65,7 @@ export const LikeButton = ({
         {optimisticIsLiked ? 'Лайкнуть' : 'Убрать лайк'}
       </span>
       <motion.div
-        className={cn('', !optimisticIsLiked && 'hidden')}
+        initial={optimisticIsLiked && { opacity: 0 }}
         animate={
           optimisticIsLiked
             ? { scale: [1, 1.4, 1], opacity: 1 }
@@ -76,7 +76,7 @@ export const LikeButton = ({
         <HeartFilledIcon className='size-6 font-bold text-red-500' />
       </motion.div>
       <motion.div
-        className={cn('', optimisticIsLiked && 'hidden')}
+        initial={optimisticIsLiked && { opacity: 0 }}
         animate={optimisticIsLiked ? { opacity: 0 } : { opacity: 1 }}
         transition={{ duration: 0.4, ease: 'easeInOut' }}
       >
