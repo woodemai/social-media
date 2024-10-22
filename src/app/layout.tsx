@@ -36,7 +36,10 @@ export const viewport: Viewport = {
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <ViewTransitions>
-      <html lang='ru'>
+      <html
+        lang='ru'
+        suppressHydrationWarning
+      >
         <body
           className={cn(
             'min-h-dvh bg-gradient-to-r from-fuchsia-200 to-indigo-200 font-sans antialiased dark:bg-gradient-to-r dark:from-slate-900 dark:to-slate-700',
