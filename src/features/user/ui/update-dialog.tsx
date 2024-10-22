@@ -1,6 +1,7 @@
 'use client';
 
 import { zodResolver } from '@hookform/resolvers/zod';
+import { DialogTitle } from '@radix-ui/react-dialog';
 import { useState, useTransition } from 'react';
 import { useForm } from 'react-hook-form';
 import { type z } from 'zod';
@@ -11,6 +12,7 @@ import { Button } from '@/shared/ui/button';
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
   DialogFooter,
   DialogHeader,
   DialogTrigger,
@@ -85,7 +87,10 @@ export const UpdateDialog = () => {
         </Button>
       </DialogTrigger>
       <DialogContent>
-        <DialogHeader>Обновление профиля</DialogHeader>
+        <DialogHeader>
+          <DialogTitle className='font-bold'>Обновление профиля</DialogTitle>
+          <DialogDescription>Настройте профиль под себя</DialogDescription>
+        </DialogHeader>
         <Form {...form}>
           <form
             className='w-full space-y-4'
@@ -101,6 +106,7 @@ export const UpdateDialog = () => {
                     <Input
                       {...field}
                       placeholder='Введите новое имя'
+                      autoComplete='name'
                     />
                   </FormControl>
                   <FormMessage />
@@ -117,6 +123,7 @@ export const UpdateDialog = () => {
                     <Input
                       {...field}
                       placeholder='Расскажите немного о себе'
+                      autoComplete='bio'
                     />
                   </FormControl>
                   <FormMessage />
@@ -134,6 +141,7 @@ export const UpdateDialog = () => {
                       {...field}
                       placeholder='Придумайте надежный пароль'
                       type='password'
+                      autoComplete='password'
                     />
                   </FormControl>
                   <FormMessage />
