@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import { Link } from 'next-view-transitions';
 
-import { Dialog, DialogContent, DialogTrigger } from '@/shared/ui/dialog';
 import { cn } from '@/shared/utils';
 
 import { VideoItem } from './video-item';

@@ -1,14 +1,12 @@
-'use strict';
+import { type NextConfig } from 'next';
 
-await import('./src/env.mjs');
+import '@/env';
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+export const nextConfig: NextConfig = {
   reactStrictMode: true,
   trailingSlash: false,
   skipTrailingSlashRedirect: true,
   experimental: {
-    ppr: true,
     reactCompiler: true,
     optimizePackageImports: [
       '@radix-ui/react-avatar',
@@ -45,5 +43,3 @@ const nextConfig = {
     ],
   },
 };
-
-export default nextConfig;

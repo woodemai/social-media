@@ -7,7 +7,7 @@ import { ViewTransitions } from 'next-view-transitions';
 
 import '@/config/globals.css';
 import { StoreProvider } from '@/config/store';
-import { env } from '@/env.mjs';
+import { env } from '@/env';
 import { Toaster } from '@/shared/ui/toaster';
 import { cn } from '@/shared/utils';
 
