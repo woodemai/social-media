@@ -3,18 +3,27 @@ import { type SubscriptionTabs } from '@/entities/subscription/types';
 import { SubscriptionMenuModal } from '@/entities/subscription/ui/menu/modal';
 
 type SubscriptionModalPageProps = {
-  params: {
+  params: Promise<{
     id: string;
-  };
-  searchParams: {
+  }>;
+  searchParams: Promise<{
     tab: SubscriptionTabs;
-  };
+  }>;
 };
 
-const SubscriptionModalPage = async ({
-  params: { id },
-  searchParams: { tab },
-}: SubscriptionModalPageProps) => {
+const SubscriptionModalPage = async (props: SubscriptionModalPageProps) => {
+  const searchParams = await props.searchParams;
+
+  const {
+    tab
+  } = searchParams;
+
+  const params = await props.params;
+
+  const {
+    id
+  } = params;
+
   const subscriptionInfo = await getSubscriptionInfo(id);
 
   return (

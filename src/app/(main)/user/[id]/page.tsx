@@ -7,12 +7,18 @@ import { ListSkeleton, PostForm, PostList } from '@/widgets/post';
 import { UserInfo, UserNotFound } from '@/widgets/user';
 
 type UserPageProps = {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 };
 
-const UserPage = async ({ params: { id } }: UserPageProps) => {
+const UserPage = async (props: UserPageProps) => {
+  const params = await props.params;
+
+  const {
+    id
+  } = params;
+
   const [user, currentUser, isSubscribed] = await Promise.all([
     getUserById(id),
     getCurrentUser(),

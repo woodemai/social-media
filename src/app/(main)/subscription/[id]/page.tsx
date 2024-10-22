@@ -3,18 +3,27 @@ import { type SubscriptionTabs } from '@/entities/subscription/types';
 import { SubscriptionMenu } from '@/entities/subscription/ui/menu/menu';
 
 type SubscriptionPageProps = {
-  params: {
+  params: Promise<{
     id: string;
-  };
-  searchParams: {
+  }>;
+  searchParams: Promise<{
     tab: SubscriptionTabs;
-  };
+  }>;
 };
 
-const SubscriptionPage = async ({
-  params: { id },
-  searchParams: { tab },
-}: SubscriptionPageProps) => {
+const SubscriptionPage = async (props: SubscriptionPageProps) => {
+  const searchParams = await props.searchParams;
+
+  const {
+    tab
+  } = searchParams;
+
+  const params = await props.params;
+
+  const {
+    id
+  } = params;
+
   const subscriptionInfo = await getSubscriptionInfo(id);
 
   return (
