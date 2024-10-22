@@ -9,9 +9,7 @@ type SubscriptionModalPageProps = {
 const SubscriptionModalPage = async (props: SubscriptionModalPageProps) => {
   const searchParams = await props.searchParams;
 
-  const {
-    url
-  } = searchParams;
+  const { url } = searchParams;
 
   return (
     <div className='flex size-full items-center justify-center'>

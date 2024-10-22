@@ -9,9 +9,7 @@ type ImageModalPageProps = {
 const ImageModalPage = async (props: ImageModalPageProps) => {
   const searchParams = await props.searchParams;
 
-  const {
-    url
-  } = searchParams;
+  const { url } = searchParams;
 
   return <ImageDialog url={url} />;
 };

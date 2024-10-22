@@ -14,15 +14,11 @@ type SubscriptionPageProps = {
 const SubscriptionPage = async (props: SubscriptionPageProps) => {
   const searchParams = await props.searchParams;
 
-  const {
-    tab
-  } = searchParams;
+  const { tab } = searchParams;
 
   const params = await props.params;
 
-  const {
-    id
-  } = params;
+  const { id } = params;
 
   const subscriptionInfo = await getSubscriptionInfo(id);
 

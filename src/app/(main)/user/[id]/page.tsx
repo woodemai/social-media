@@ -15,9 +15,7 @@ type UserPageProps = {
 const UserPage = async (props: UserPageProps) => {
   const params = await props.params;
 
-  const {
-    id
-  } = params;
+  const { id } = params;
 
   const [user, currentUser, isSubscribed] = await Promise.all([
     getUserById(id),
