@@ -10,7 +10,7 @@ export type StoreApi = ReturnType<typeof getStore>;
 export const StoreContext = createContext<StoreApi | undefined>(undefined);
 
 export const StoreProvider = ({ children }: { children: ReactNode }) => {
-  const storeRef = useRef<StoreApi>();
+  const storeRef = useRef<StoreApi>(null);
   if (!storeRef.current) {
     storeRef.current = getStore();
   }
