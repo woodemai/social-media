@@ -15,10 +15,11 @@ export const FormSuccess = ({ message }: FormSuccessProps) => {
           exit={{ opacity: 0, scale: 0.8 }}
           transition={{ duration: 0.25, ease: 'easeInOut' }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
-          className='flex items-center gap-x-2 rounded-md bg-emerald-500/15 p-3 text-sm text-emerald-500'
         >
-          <CheckCircledIcon className='size-4' />
-          <p>{message}</p>
+          <div className='flex items-center gap-x-2 rounded-md bg-emerald-500/15 p-3 text-sm text-emerald-500'>
+            <CheckCircledIcon className='size-4' />
+            <p>{message}</p>
+          </div>
         </motion.div>
       )}
     </AnimatePresence>

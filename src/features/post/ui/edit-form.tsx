@@ -85,89 +85,94 @@ export const PostEditForm = ({
 
   return (
     <Form {...form}>
-      <motion.form
+      <motion.div
         initial={{ opacity: 0 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.4, ease: 'easeInOut' }}
         animate={{ opacity: 1 }}
-        onSubmit={handleSubmit}
-        className='flex flex-col gap-y-4'
       >
-        <div className='flex items-center justify-between'>
-          <div className='flex items-center gap-x-4'>
-            <Pencil1Icon className='size-4' />
-            <h3 className='text-lg font-bold tracking-tight'>Редактирование</h3>
+        <form
+          onSubmit={handleSubmit}
+          className='flex flex-col gap-y-4'
+        >
+          <div className='flex items-center justify-between'>
+            <div className='flex items-center gap-x-4'>
+              <Pencil1Icon className='size-4' />
+              <h3 className='text-lg font-bold tracking-tight'>
+                Редактирование
+              </h3>
+            </div>
+            <Button
+              variant='ghost'
+              size='icon'
+              onClick={close}
+            >
+              <Cross1Icon className='size-4' />
+            </Button>
           </div>
-          <Button
-            variant='ghost'
-            size='icon'
-            onClick={close}
-          >
-            <Cross1Icon className='size-4' />
-          </Button>
-        </div>
-        <FormField
-          control={form.control}
-          name='body'
-          render={({ field }) => (
-            <FormItem>
-              <FormControl>
-                <Textarea
-                  disabled={isPending}
-                  placeholder='Что у вас нового?'
-                  {...field}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormMediaList
-          media={multimedia}
-          onRemove={handleMediaRemove}
-        />
-        <FormError message={error} />
-        <div className='flex justify-end gap-x-4'>
           <FormField
             control={form.control}
-            name='multimedia'
-            render={() => (
+            name='body'
+            render={({ field }) => (
               <FormItem>
                 <FormControl>
-                  <CldUploadWidget
-                    onSuccess={handleMediaUpload}
-                    uploadPreset='fkkcjhmy'
-                  >
-                    {({ open }) => (
-                      <Button
-                        disabled={isPending}
-                        name='Загрузить'
-                        onClick={() => {
-                          open();
-                        }}
-                        title='Загрузить'
-                        type='button'
-                        variant='secondary'
-                      >
-                        <span className='sr-only'>Загрузить</span>
-                        <UploadIcon className='size-4' />
-                      </Button>
-                    )}
-                  </CldUploadWidget>
+                  <Textarea
+                    disabled={isPending}
+                    placeholder='Что у вас нового?'
+                    {...field}
+                  />
                 </FormControl>
+                <FormMessage />
               </FormItem>
             )}
           />
-          <Button
-            disabled={isPending}
-            type='submit'
-            className='space-x-2'
-          >
-            <Save className='size-4' />
-            <span>Сохранить</span>
-          </Button>
-        </div>
-      </motion.form>
+          <FormMediaList
+            media={multimedia}
+            onRemove={handleMediaRemove}
+          />
+          <FormError message={error} />
+          <div className='flex justify-end gap-x-4'>
+            <FormField
+              control={form.control}
+              name='multimedia'
+              render={() => (
+                <FormItem>
+                  <FormControl>
+                    <CldUploadWidget
+                      onSuccess={handleMediaUpload}
+                      uploadPreset='fkkcjhmy'
+                    >
+                      {({ open }) => (
+                        <Button
+                          disabled={isPending}
+                          name='Загрузить'
+                          onClick={() => {
+                            open();
+                          }}
+                          title='Загрузить'
+                          type='button'
+                          variant='secondary'
+                        >
+                          <span className='sr-only'>Загрузить</span>
+                          <UploadIcon className='size-4' />
+                        </Button>
+                      )}
+                    </CldUploadWidget>
+                  </FormControl>
+                </FormItem>
+              )}
+            />
+            <Button
+              disabled={isPending}
+              type='submit'
+              className='space-x-2'
+            >
+              <Save className='size-4' />
+              <span>Сохранить</span>
+            </Button>
+          </div>
+        </form>
+      </motion.div>
     </Form>
   );
 };

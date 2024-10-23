@@ -7,8 +7,7 @@ import Yandex from 'next-auth/providers/yandex';
 
 import { db } from '@/config/prisma';
 import { loginSchema } from '@/entities/auth/schemas';
-
-import { env } from './env.mjs';
+import { env } from '@/env';
 
 export default {
   providers: [

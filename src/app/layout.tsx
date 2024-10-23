@@ -7,7 +7,7 @@ import { ViewTransitions } from 'next-view-transitions';
 
 import '@/config/globals.css';
 import { StoreProvider } from '@/config/store';
-import { env } from '@/env.mjs';
+import { env } from '@/env';
 import { Toaster } from '@/shared/ui/toaster';
 import { cn } from '@/shared/utils';
 
@@ -46,12 +46,12 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
             fontSans.variable,
           )}
         >
-          <ThemeProvider
-            attribute='class'
-            defaultTheme='system'
-            enableSystem
-          >
-            <SessionProvider>
+          <SessionProvider>
+            <ThemeProvider
+              attribute='class'
+              defaultTheme='system'
+              enableSystem
+            >
               <StoreProvider>
                 <Toaster />
                 <BackgroundFigure className='left-[50%] top-[100px]' />
@@ -65,8 +65,8 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
                   </>
                 ) : null}
               </StoreProvider>
-            </SessionProvider>
-          </ThemeProvider>
+            </ThemeProvider>
+          </SessionProvider>
         </body>
       </html>
     </ViewTransitions>

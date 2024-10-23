@@ -1,14 +1,15 @@
-'use strict';
+import { type NextConfig } from 'next';
 
-await import('./src/env.mjs');
+import '@/env';
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+const nextConfig: NextConfig = {
   reactStrictMode: true,
   trailingSlash: false,
   skipTrailingSlashRedirect: true,
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   experimental: {
-    ppr: true,
     reactCompiler: true,
     optimizePackageImports: [
       '@radix-ui/react-avatar',

@@ -1,4 +1,3 @@
-import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { Link } from 'next-view-transitions';
 
@@ -7,11 +6,8 @@ import { getFullCurrentUser } from '@/entities/user/data';
 import { ThemeToggle } from '@/shared/ui/theme-toggle';
 
 import { Notifications } from './notifications';
-
-const UserHeaderMenu = dynamic(() =>
-  import('./user-menu').then(mod => mod.UserHeaderMenu),
-);
-const Search = dynamic(() => import('./search').then(mod => mod.Search));
+import { Search } from './search';
+import { UserHeaderMenu } from './user-menu';
 
 export const Header = async () => {
   const user = await getFullCurrentUser();
