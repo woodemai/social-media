@@ -1,8 +1,8 @@
 {
   "type": "module",
-  "name": "DevSphere",
+  "name": "dev-sphere",
   "homepage": "https://social-media-dsr-next.vercel.app/",
-  "version": "0.2.4",
+  "version": "0.3.0",
   "private": true,
   "scripts": {
     "prisma:init": "prisma init",
