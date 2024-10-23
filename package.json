@@ -73,7 +73,7 @@
     "babel-plugin-react-compiler": "0.0.0-experimental-938cd9a-20240601",
     "bcryptjs": "^2.4.3",
     "eslint": "^8.57.1",
-    "eslint-config-next": "15.0.0",
+    "eslint-config-next": "15.0.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-no-relative-import-paths": "^1.5.5",
