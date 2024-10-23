@@ -70,7 +70,7 @@
     "@types/node": "^20.16.14",
     "@types/react": "npm:types-react@19.0.0-rc.1",
     "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1",
-    "babel-plugin-react-compiler": "0.0.0-experimental-938cd9a-20240601",
+    "babel-plugin-react-compiler": "0.0.0-experimental-7449567-20240905",
     "bcryptjs": "^2.4.3",
     "eslint": "^8.57.1",
     "eslint-config-next": "15.0.0",
