@@ -67,7 +67,7 @@
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.15",
     "@types/bcryptjs": "^2.4.6",
-    "@types/node": "^20.16.14",
+    "@types/node": "^22.7.9",
     "@types/react": "npm:types-react@19.0.0-rc.1",
     "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1",
     "babel-plugin-react-compiler": "0.0.0-experimental-938cd9a-20240601",
