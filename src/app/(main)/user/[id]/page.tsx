@@ -6,6 +6,8 @@ import { getUserById } from '@/entities/user/data';
 import { ListSkeleton, PostForm, PostList } from '@/widgets/post';
 import { UserInfo, UserNotFound } from '@/widgets/user';
 
+import { NoAccess } from './_components/no-access';
+
 type UserPageProps = {
   params: Promise<{
     id: string;
@@ -36,22 +38,12 @@ const UserPage = async (props: UserPageProps) => {
           user={user}
         />
       )}
-      {isOwner ? <PostForm /> : null}
+      {isOwner && <PostForm />}
       {isShowingPosts ? (
         <Suspense fallback={<ListSkeleton />}>
           <PostList userId={id} />
         </Suspense>
-      ) : (
-        <div className='flex flex-col items-center justify-center gap-y-4 text-center text-primary'>
-          <span className='text-3xl'>🔒</span>
-          <h1 className='text-3xl font-bold tracking-tight'>
-            Приватный профиль
-          </h1>
-          <p className='text-muted-foreground'>
-            Подпишитесь чтобы смотреть посты
-          </p>
-        </div>
-      )}
+      ) : <NoAccess />}
     </>
   );
 };
