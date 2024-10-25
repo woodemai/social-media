@@ -10,6 +10,8 @@ const nextConfig: NextConfig = {
     ignoreDuringBuilds: true,
   },
   experimental: {
+    dynamicIO: true,
+    ppr: true,
     reactCompiler: true,
     optimizePackageImports: [
       '@radix-ui/react-avatar',
