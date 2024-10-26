@@ -6,11 +6,11 @@ import { useTransition } from 'react';
 import { useForm } from 'react-hook-form';
 
 import { useStore } from '@/config/store';
-import { commentUpdateAction } from '@/entities/comment/actions';
 import {
+  commentUpdateAction,
   commentSchema,
   type commentSchemaType,
-} from '@/entities/comment/schemas';
+} from '@/entities/comment';
 import { Button } from '@/shared/ui/button';
 import { Form, FormControl, FormField, FormItem } from '@/shared/ui/form';
 import { Input } from '@/shared/ui/input';

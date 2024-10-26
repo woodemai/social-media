@@ -1,8 +1,7 @@
 'use client';
 import { useState } from 'react';
 
-import { type FullComment } from '@/entities/comment/types';
-import { CommentList } from '@/entities/comment/ui/list';
+import { type FullComment, CommentList } from '@/entities/comment';
 
 import { CommentButton } from './comment-button';
 import { CommentForm } from './comment-form';

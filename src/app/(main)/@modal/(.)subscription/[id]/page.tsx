@@ -1,8 +1,10 @@
 import { Suspense } from 'react';
 
-import { getSubscriptionInfo } from '@/entities/subscription/data';
-import { type SubscriptionTabs } from '@/entities/subscription/types';
-import { SubscriptionMenuModal } from '@/entities/subscription/ui/menu/modal';
+import {
+  getSubscriptionInfo,
+  type SubscriptionTabs,
+  SubscriptionMenuModal,
+} from '@/entities/subscription/';
 
 type SubscriptionModalPageProps = {
   params: Promise<{

@@ -7,9 +7,8 @@ import { useForm } from 'react-hook-form';
 import { type z } from 'zod';
 
 import { useStore } from '@/config/store';
-import { createCommentAction } from '@/entities/comment/actions';
-import { commentSchema } from '@/entities/comment/schemas';
-import { useCurrentUser } from '@/entities/user/hooks/useCurrentUser';
+import { createCommentAction, commentSchema } from '@/entities/comment';
+import { useCurrentUser } from '@/entities/user';
 import { UserAvatar } from '@/features/user';
 import { Button } from '@/shared/ui/button';
 import { Form, FormControl, FormField, FormItem } from '@/shared/ui/form';

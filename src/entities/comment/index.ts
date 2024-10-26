@@ -1,4 +1,4 @@
 export * from './actions';
 export * from './schemas';
 export * from './ui';
-export * from './hooks';
+export * from './types';

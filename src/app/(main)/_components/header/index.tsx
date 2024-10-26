@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { Link } from 'next-view-transitions';
 
 import logo from '@/../public/icons/logo.png';
-import { getFullCurrentUser } from '@/entities/user/data';
+import { getFullCurrentUser } from '@/entities/user';
 import { ThemeToggle } from '@/shared/ui/theme-toggle';
 
 import { Notifications } from './notifications';

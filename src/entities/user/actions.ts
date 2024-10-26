@@ -4,7 +4,7 @@ import { hash, compare } from 'bcryptjs';
 import { type z } from 'zod';
 
 import { db } from '@/config/prisma';
-import { getCurrentUser } from '@/entities/user/data';
+import { getCurrentUser } from '@/entities/user';
 
 import { updateSchema } from './schemas';
 

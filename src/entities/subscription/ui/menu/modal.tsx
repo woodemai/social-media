@@ -6,7 +6,7 @@ import { useState } from 'react';
 import {
   type SubscriptionInfo,
   type SubscriptionTabs,
-} from '@/entities/subscription/types';
+} from '@/entities/subscription';
 import { Dialog, DialogContent } from '@/shared/ui/dialog';
 
 import { SubscriptionMenu } from '.';
@@ -16,10 +16,7 @@ type SubscriptionMenuProps = {
   subscriptionInfo: SubscriptionInfo;
 };
 
-export const SubscriptionMenuModal = ({
-  tab,
-  subscriptionInfo,
-}: SubscriptionMenuProps) => {
+export const SubscriptionMenuModal = ({ tab }: SubscriptionMenuProps) => {
   const [open, setOpen] = useState(true);
   const router = useRouter();
 
@@ -42,7 +39,6 @@ export const SubscriptionMenuModal = ({
         <SubscriptionMenu
           closeDialog={handleOpen}
           tab={tab}
-          subscriptionInfo={subscriptionInfo}
         />
       </DialogContent>
     </Dialog>

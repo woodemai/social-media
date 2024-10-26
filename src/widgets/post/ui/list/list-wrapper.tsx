@@ -1,5 +1,5 @@
 import { getPosts } from '@/entities/post';
-import { getCurrentUser } from '@/entities/user/data';
+import { getCurrentUser } from '@/entities/user';
 
 import { ListClient } from './list-client';
 import { NoPosts } from './no-posts';

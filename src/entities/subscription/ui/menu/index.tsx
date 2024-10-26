@@ -1,7 +1,6 @@
 import { Link } from 'next-view-transitions';
 
-import { getSubscriptionInfo } from '@/entities/subscription';
-import { SubscriptionTabs } from '@/entities/subscription/types';
+import { getSubscriptionInfo, SubscriptionTabs } from '@/entities/subscription';
 import { Button } from '@/shared/ui/button';
 import { Tabs, TabsList, TabsTrigger } from '@/shared/ui/tabs';
 

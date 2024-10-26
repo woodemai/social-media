@@ -3,7 +3,7 @@
 import { PAGE_SIZE } from '@/config/next.constants.mjs';
 import { db } from '@/config/prisma';
 import { postSchema, type postSchemaType } from '@/entities/post';
-import { getCurrentUser } from '@/entities/user/data';
+import { getCurrentUser } from '@/entities/user';
 
 import { type FullPost } from './types';
 

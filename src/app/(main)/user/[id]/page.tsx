@@ -1,8 +1,7 @@
 import { Suspense } from 'react';
 
 import { getIsSubscribed } from '@/entities/subscription';
-import { getCurrentUser } from '@/entities/user';
-import { getUserById } from '@/entities/user/data';
+import { getCurrentUser, getUserById } from '@/entities/user';
 import { ListSkeleton, PostForm, PostList } from '@/widgets/post';
 import { UserInfo, UserNotFound } from '@/widgets/user';
 
