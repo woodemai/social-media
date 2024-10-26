@@ -4,7 +4,11 @@ export type WithChildren<T> =
     })
   | { children: React.ReactNode };
 
-export type RouteParams<Params, SeachParams> = {
-  params: Promise<Params>;
-  searchParams: Promise<SeachParams>;
-};
+
+export type RouteParams<
+  Params extends object | undefined,
+  SeachParams extends object | undefined,
+> = {
+  params: Params extends object ? Promise<Params> : never;
+  searchParams: SeachParams extends object ? Promise<SeachParams> : never;
+}

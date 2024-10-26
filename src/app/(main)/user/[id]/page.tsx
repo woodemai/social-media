@@ -2,21 +2,16 @@ import { Suspense } from 'react';
 
 import { getIsSubscribed } from '@/entities/subscription';
 import { getCurrentUser, getUserById } from '@/entities/user';
+import { type RouteParams } from '@/shared/types';
 import { ListSkeleton, PostForm, PostList } from '@/widgets/post';
 import { UserInfo, UserNotFound } from '@/widgets/user';
 
 import { NoAccess } from './_components/no-access';
 
-type UserPageProps = {
-  params: Promise<{
-    id: string;
-  }>;
-};
-
-const UserPage = async (props: UserPageProps) => {
-  const params = await props.params;
-
-  const { id } = params;
+const UserPage = async ({
+  params,
+}: RouteParams<{ id: string }, undefined>) => {
+  const { id } = await params;
 
   const [user, currentUser, isSubscribed] = await Promise.all([
     getUserById(id),
