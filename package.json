@@ -15,7 +15,7 @@
     "prisma:push": "prisma db push",
     "dev": "next dev",
     "dev:turbo": "NODE_OPTIONS='--inspect' next dev --turbo",
-    "postinstall": "prisma generate",
+    "postinstall": "prisma generate --no-engine",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
