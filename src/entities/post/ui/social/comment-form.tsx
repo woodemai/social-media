@@ -8,7 +8,7 @@ import { type z } from 'zod';
 
 import { useStore } from '@/config/store';
 import { createCommentAction, commentSchema } from '@/entities/comment';
-import { useCurrentUser } from '@/entities/user';
+import { useCurrentUser } from '@/entities/user/client';
 import { UserAvatar } from '@/features/user';
 import { Button } from '@/shared/ui/button';
 import { Form, FormControl, FormField, FormItem } from '@/shared/ui/form';

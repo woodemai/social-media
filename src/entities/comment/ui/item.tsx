@@ -3,7 +3,7 @@
 import { useState } from 'react';
 
 import { type FullComment } from '@/entities/comment';
-import { useCurrentUser } from '@/entities/user';
+import { useCurrentUser } from '@/entities/user/client';
 import { ProfileLink } from '@/features/user/ui/profile-link';
 
 import { ActionsMenu } from './action-menu';

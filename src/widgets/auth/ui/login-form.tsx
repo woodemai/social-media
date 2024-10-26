@@ -1,6 +1,6 @@
 'use client';
 
-import { useLogin } from '@/entities/auth';
+import { useLogin } from '@/entities/auth/client';
 import { CardWrapper } from '@/features/auth';
 import { Button } from '@/shared/ui/button';
 import {

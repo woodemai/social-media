@@ -3,8 +3,8 @@ import { Suspense } from 'react';
 import {
   getSubscriptionInfo,
   type SubscriptionTabs,
-  SubscriptionMenuModal,
-} from '@/entities/subscription/';
+} from '@/entities/subscription';
+import { SubscriptionMenuModal } from '@/entities/subscription/client';
 
 type SubscriptionModalPageProps = {
   params: Promise<{
