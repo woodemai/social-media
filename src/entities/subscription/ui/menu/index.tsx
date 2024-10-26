@@ -1,9 +1,7 @@
 import { Link } from 'next-view-transitions';
 
-import {
-  type SubscriptionInfo,
-  SubscriptionTabs,
-} from '@/entities/subscription/types';
+import { getSubscriptionInfo } from '@/entities/subscription';
+import { SubscriptionTabs } from '@/entities/subscription/types';
 import { Button } from '@/shared/ui/button';
 import { Tabs, TabsList, TabsTrigger } from '@/shared/ui/tabs';
 
@@ -11,15 +9,18 @@ import { SubscriptionMenuItem } from './menu-item';
 
 type SubscriptionMenuProps = {
   tab?: SubscriptionTabs;
-  subscriptionInfo: SubscriptionInfo;
+  id: string;
   closeDialog?: () => void;
 };
 
-export const SubscriptionMenu = ({
+export const SubscriptionMenu = async ({
   tab,
   closeDialog,
-  subscriptionInfo: { subscribed, subscribers, name, id },
+  id: userId,
 }: SubscriptionMenuProps) => {
+  const { name, subscribed, subscribers, id } =
+    await getSubscriptionInfo(userId);
+
   return (
     <Tabs defaultValue={tab}>
       <div className='flex items-end justify-between gap-x-2'>

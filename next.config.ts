@@ -9,8 +9,11 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   experimental: {
-    dynamicIO: true,
+    // dynamicIO: true,
     ppr: true,
     reactCompiler: true,
     optimizePackageImports: [

@@ -43,7 +43,9 @@ const UserPage = async (props: UserPageProps) => {
         <Suspense fallback={<ListSkeleton />}>
           <PostList userId={id} />
         </Suspense>
-      ) : <NoAccess />}
+      ) : (
+        <NoAccess />
+      )}
     </>
   );
 };

@@ -16,7 +16,7 @@ type PostItemProps = {
 
 const ActionsMenu = dynamic(() =>
   import('@/entities/post').then(mob => ({
-    default: mob.ActionsMenu
+    default: mob.ActionsMenu,
   })),
 );
 

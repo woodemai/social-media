@@ -9,7 +9,7 @@ import {
 } from '@/entities/subscription/types';
 import { Dialog, DialogContent } from '@/shared/ui/dialog';
 
-import { SubscriptionMenu } from './menu';
+import { SubscriptionMenu } from '.';
 
 type SubscriptionMenuProps = {
   tab?: SubscriptionTabs;

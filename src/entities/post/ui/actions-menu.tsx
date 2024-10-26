@@ -7,7 +7,7 @@ import {
 } from '@radix-ui/react-icons';
 
 import { useStore } from '@/config/store';
-import { deleteAction } from '@/entities/post/actions';
+import { deleteAction } from '@/entities/post';
 import { Button } from '@/shared/ui/button';
 import {
   DropdownMenu,

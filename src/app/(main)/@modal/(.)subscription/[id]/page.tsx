@@ -1,3 +1,5 @@
+import { Suspense } from 'react';
+
 import { getSubscriptionInfo } from '@/entities/subscription/data';
 import { type SubscriptionTabs } from '@/entities/subscription/types';
 import { SubscriptionMenuModal } from '@/entities/subscription/ui/menu/modal';
@@ -11,22 +13,22 @@ type SubscriptionModalPageProps = {
   }>;
 };
 
-const SubscriptionModalPage = async (props: SubscriptionModalPageProps) => {
-  const searchParams = await props.searchParams;
-
-  const { tab } = searchParams;
-
-  const params = await props.params;
-
-  const { id } = params;
+const SubscriptionModalPage = async ({
+  params,
+  searchParams,
+}: SubscriptionModalPageProps) => {
+  const { tab } = await searchParams;
+  const { id } = await params;
 
   const subscriptionInfo = await getSubscriptionInfo(id);
 
   return (
-    <SubscriptionMenuModal
-      tab={tab}
-      subscriptionInfo={subscriptionInfo}
-    />
+    <Suspense fallback='Loading'>
+      <SubscriptionMenuModal
+        tab={tab}
+        subscriptionInfo={subscriptionInfo}
+      />
+    </Suspense>
   );
 };
 
