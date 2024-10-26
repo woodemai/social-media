@@ -16,7 +16,10 @@ type SubscriptionMenuProps = {
   subscriptionInfo: SubscriptionInfo;
 };
 
-export const SubscriptionMenuModal = ({ tab }: SubscriptionMenuProps) => {
+export const SubscriptionMenuModal = ({
+  tab,
+  subscriptionInfo,
+}: SubscriptionMenuProps) => {
   const [open, setOpen] = useState(true);
   const router = useRouter();
 
@@ -37,6 +40,7 @@ export const SubscriptionMenuModal = ({ tab }: SubscriptionMenuProps) => {
     >
       <DialogContent className='border-none bg-transparent shadow-none'>
         <SubscriptionMenu
+          subscriptionInfo={subscriptionInfo}
           closeDialog={handleOpen}
           tab={tab}
         />
