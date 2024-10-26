@@ -14,7 +14,6 @@ export const env = createEnv({
     YANDEX_CLIENT_ID: z.string(),
     GOOGLE_CLIENT_ID: z.string(),
     GOOGLE_CLIENT_SECRET: z.string(),
-    OPTIMIZE_API_KEY: z.string(),
   },
   client: {
     NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME: z.string(),
