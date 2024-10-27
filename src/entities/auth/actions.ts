@@ -34,6 +34,7 @@ export const login = async (values: z.infer<typeof loginSchema>) => {
     }
     throw error;
   }
+
   return { success: 'Вы вошли в аккаунт!' };
 };
 
@@ -60,5 +61,6 @@ export const register = async (values: z.infer<typeof registerSchema>) => {
       password: hashedPassword,
     },
   });
+
   return { success: 'Успех!' };
 };

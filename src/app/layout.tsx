@@ -14,12 +14,12 @@ import { cn } from '@/shared/utils';
 import { BackgroundFigure } from './_components/backgound-figure';
 import { ThemeProvider } from './_components/theme-provider';
 
-const fontSans = FontSans({ subsets: ['latin'], variable: '--font-sans' });
+const fontSans = FontSans({ subsets: [ 'latin' ], variable: '--font-sans' });
 
 export const metadata: Metadata = {
   title: 'DevSphere',
   description: 'DevSphere social media for developers',
-  keywords: ['Social', 'Media', 'Friends', 'Develop'],
+  keywords: [ 'Social', 'Media', 'Friends', 'Develop' ],
   metadataBase: new URL('https://social-media-dsr-next.vercel.app/'),
   openGraph: {
     title: 'DevSphere',
@@ -33,44 +33,42 @@ export const viewport: Viewport = {
   themeColor: 'background',
 };
 
-const RootLayout = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <ViewTransitions>
-      <html
-        lang='ru'
-        suppressHydrationWarning
+const RootLayout = ({ children }: { children: React.ReactNode }) => (
+  <ViewTransitions>
+    <html
+      lang='ru'
+      suppressHydrationWarning
+    >
+      <body
+        className={cn(
+          'min-h-dvh bg-gradient-to-r from-fuchsia-200 to-indigo-200 font-sans antialiased dark:bg-gradient-to-r dark:from-slate-900 dark:to-slate-700',
+          fontSans.variable,
+        )}
       >
-        <body
-          className={cn(
-            'min-h-dvh bg-gradient-to-r from-fuchsia-200 to-indigo-200 font-sans antialiased dark:bg-gradient-to-r dark:from-slate-900 dark:to-slate-700',
-            fontSans.variable,
-          )}
-        >
-          <SessionProvider>
-            <ThemeProvider
-              attribute='class'
-              defaultTheme='system'
-              enableSystem
-            >
-              <StoreProvider>
-                <Toaster />
-                <BackgroundFigure className='left-[50%] top-[100px]' />
-                <BackgroundFigure className='left-[5%] top-[60%]' />
-                <BackgroundFigure className='left-[85%] top-[70%]' />
-                {children}
-                {env.NEXT_PUBLIC_VERCEL_ENV ? (
-                  <>
-                    <Analytics />
-                    <SpeedInsights />
-                  </>
-                ) : null}
-              </StoreProvider>
-            </ThemeProvider>
-          </SessionProvider>
-        </body>
-      </html>
-    </ViewTransitions>
-  );
-};
+        <SessionProvider>
+          <ThemeProvider
+            attribute='class'
+            defaultTheme='system'
+            enableSystem
+          >
+            <StoreProvider>
+              <Toaster />
+              <BackgroundFigure className='left-[50%] top-[100px]' />
+              <BackgroundFigure className='left-[5%] top-[60%]' />
+              <BackgroundFigure className='left-[85%] top-[70%]' />
+              {children}
+              {env.NEXT_PUBLIC_VERCEL_ENV ? (
+                <>
+                  <Analytics />
+                  <SpeedInsights />
+                </>
+              ) : null}
+            </StoreProvider>
+          </ThemeProvider>
+        </SessionProvider>
+      </body>
+    </html>
+  </ViewTransitions>
+);
 
 export default RootLayout;

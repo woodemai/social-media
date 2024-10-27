@@ -1,6 +1,4 @@
 import { LoginForm } from '@/widgets/auth';
 
-const LoginPage = () => {
-  return <LoginForm />;
-};
+const LoginPage = () => <LoginForm />;
 export default LoginPage;

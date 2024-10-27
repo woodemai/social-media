@@ -20,7 +20,7 @@ export const Social = ({
   initialIsLiked = true,
   comments,
 }: SocialProps) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [ isOpen, setIsOpen ] = useState(false);
 
   return (
     <div className='space-y-8'>
@@ -47,7 +47,7 @@ export const Social = ({
         comments[0] && (
           <CommentList
             postId={id}
-            comments={[comments[0]]}
+            comments={[ comments[0] ]}
           />
         )
       )}

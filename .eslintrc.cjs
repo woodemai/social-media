@@ -1,7 +1,13 @@
 /** @type {import("eslint").Linter.Config} */
 const config = {
-  extends: ['prettier', 'next', 'next/core-web-vitals'],
+  extends: ['prettier', 'next', 'next/core-web-vitals', 'eslint:recommended'],
   plugins: ['@typescript-eslint', 'eslint-plugin-react-compiler'],
+  rules: {
+    'array-bracket-spacing': ['error', 'always'],
+    'newline-before-return': 'error',
+    'no-console': 'error',
+    'arrow-body-style': ['error', 'as-needed'],
+  },
   overrides: [
     {
       files: ['**/*.{js,mjs,ts,tsx,mdx}'],
@@ -54,16 +60,15 @@ const config = {
         tsconfigRootDir: __dirname,
       },
       rules: {
-        '@typescript-eslint/consistent-type-imports': 'error',
-        '@typescript-eslint/array-type': ['error', { default: 'generic' }],
+        '@typescript-eslint/no-duplicate-enum-values': 'off',
+        '@typescript-eslint/array-type': ['error', { default: 'array', readonly: 'array' }],
         'no-relative-import-paths/no-relative-import-paths': [
           'warn',
           { allowSameFolder: true, rootDir: 'src', prefix: '@' },
         ],
-        '@typescript-eslint/array-type': 'off',
-        '@typescript-eslint/consistent-type-definitions': 'off',
+        '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
         '@typescript-eslint/consistent-type-imports': [
-          'warn',
+          'error',
           {
             prefer: 'type-imports',
             fixStyle: 'inline-type-imports',
@@ -75,7 +80,7 @@ const config = {
             argsIgnorePattern: '^_',
           },
         ],
-        '@typescript-eslint/require-await': 'off',
+        '@typescript-eslint/require-await': 'error',
         '@typescript-eslint/no-misused-promises': [
           'error',
           {
@@ -89,7 +94,6 @@ const config = {
     {
       files: ['**/*.{mdx,tsx}'],
       rules: {
-        '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
         'react/no-unescaped-entities': 'off',
         'react/function-component-definition': [
           'error',

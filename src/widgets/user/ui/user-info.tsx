@@ -23,7 +23,7 @@ export const UserInfo = ({
   useEffect(() => {
     setUser(initialUser);
     setSubscription(isSubscribed);
-  }, [initialUser, isSubscribed, setSubscription, setUser]);
+  }, [ initialUser, isSubscribed, setSubscription, setUser ]);
 
   return (
     <div className='flex justify-center gap-x-4 p-2 sm:justify-start sm:p-0'>

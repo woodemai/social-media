@@ -18,7 +18,7 @@ type UserHeaderMenuProps = {
 };
 
 export const UserHeaderMenu = ({ user }: UserHeaderMenuProps) => {
-  const [open, setOpen] = useState(false);
+  const [ open, setOpen ] = useState(false);
 
   if (!user) {
     return (

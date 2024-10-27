@@ -79,10 +79,9 @@ export const commentUpdateAction = async (
   });
 };
 
-export const removeCommentAction = async (commentId: string) => {
-  return db.comment.delete({
+export const removeCommentAction = async (commentId: string) =>
+  db.comment.delete({
     where: {
       id: commentId,
     },
   });
-};

@@ -3,7 +3,7 @@ import { z } from 'zod';
 
 export const env = createEnv({
   server: {
-    NODE_ENV: z.enum(['development', 'preview', 'production']).optional(),
+    NODE_ENV: z.enum([ 'development', 'preview', 'production' ]).optional(),
     DATABASE_URL: z.string().url(),
     DIRECT_URL: z.string().url(),
     AUTH_SECRET: z.string(),
@@ -19,7 +19,7 @@ export const env = createEnv({
     NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME: z.string(),
     NEXT_PUBLIC_CLOUDINARY_API_KEY: z.string(),
     NEXT_PUBLIC_VERCEL_ENV: z
-      .enum(['development', 'preview', 'production'])
+      .enum([ 'development', 'preview', 'production' ])
       .optional(),
   },
   experimental__runtimeEnv: {

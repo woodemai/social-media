@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/consistent-type-definitions */
 import { PrismaAdapter } from '@auth/prisma-adapter';
 import { type Role } from '@prisma/client';
 import NextAuth, { type DefaultSession } from 'next-auth';
@@ -29,19 +30,21 @@ export const {
   signOut,
 } = NextAuth({
   callbacks: {
-    async session({ session, token }) {
+    session({ session, token }) {
       if (token.sub && session.user) {
         session.user.id = token.sub;
       }
       if (token.role && session.user) {
         session.user.role = token.role as Role;
       }
+
       return session;
     },
     async jwt({ token }) {
       if (!token.sub) return token;
       const existingUser = await getUserById(token.sub);
       if (!existingUser) return token;
+
       return {
         ...token,
         role: existingUser.role,

@@ -19,15 +19,15 @@ export const LikeButton = ({
   initialIsLiked = false,
   likesCount: initialLikesCount,
 }: LikeProps) => {
-  const [likesCount, setLikesCount] = useState(initialLikesCount);
-  const [isLiked, setIsLiked] = useState(initialIsLiked);
-  const [isPending, startTransition] = useTransition();
+  const [ likesCount, setLikesCount ] = useState(initialLikesCount);
+  const [ isLiked, setIsLiked ] = useState(initialIsLiked);
+  const [ isPending, startTransition ] = useTransition();
 
-  const [optimisticIsLiked, toggleIsLiked] = useOptimistic<boolean, void>(
+  const [ optimisticIsLiked, toggleIsLiked ] = useOptimistic<boolean, void>(
     isLiked,
     isLiked => !isLiked,
   );
-  const [optimisticLikesCount, handleLikesCount] = useOptimistic<number, void>(
+  const [ optimisticLikesCount, handleLikesCount ] = useOptimistic<number, void>(
     likesCount,
     likesCount => (isLiked ? likesCount - 1 : likesCount + 1),
   );
@@ -67,7 +67,7 @@ export const LikeButton = ({
       <motion.div
         animate={
           optimisticIsLiked
-            ? { scale: [1, 1.4, 1, 1.4, 1], display: 'block' }
+            ? { scale: [ 1, 1.4, 1, 1.4, 1 ], display: 'block' }
             : { scale: 0, display: 'none' }
         }
         transition={{ duration: 1, ease: 'easeInOut' }}

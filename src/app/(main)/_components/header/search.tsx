@@ -20,9 +20,9 @@ import { Separator } from '@/shared/ui/separator';
 import { cn } from '@/shared/utils';
 
 export const Search = () => {
-  const [searchValue, setSearchValue] = useState('');
-  const [suggestions, setSuggestions] = useState<User[]>([]);
-  const [isPending, startTransition] = useTransition();
+  const [ searchValue, setSearchValue ] = useState('');
+  const [ suggestions, setSuggestions ] = useState<User[]>([]);
+  const [ isPending, startTransition ] = useTransition();
 
   const updateSuggestions = debounce((value: string) => {
     if (!value.length) return;

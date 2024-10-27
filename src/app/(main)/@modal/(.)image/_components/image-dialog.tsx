@@ -7,7 +7,7 @@ import { useState } from 'react';
 import { Dialog, DialogContent } from '@/shared/ui/dialog';
 
 const ImageDialog = ({ url }: { url: string }) => {
-  const [open, setOpen] = useState(true);
+  const [ open, setOpen ] = useState(true);
   const router = useRouter();
 
   const handleOpen = () => {

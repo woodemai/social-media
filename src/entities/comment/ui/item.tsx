@@ -19,10 +19,10 @@ export const CommentItem = ({
   postId,
 }: CommentItemProps) => {
   const user = useCurrentUser();
-  const [isEditing, setIsEditing] = useState(false);
+  const [ isEditing, setIsEditing ] = useState(false);
 
   const isOwner = user?.id === author.id;
-  //TODO: Add edit options
+
   return (
     <div className='group/comment flex items-start justify-between gap-x-2 overflow-hidden'>
       {isEditing ? (

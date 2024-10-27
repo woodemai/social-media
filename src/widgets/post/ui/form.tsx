@@ -26,9 +26,9 @@ import { MFormSuccess } from '@/shared/ui/form-success';
 import { Textarea } from '@/shared/ui/textarea';
 
 export const PostForm = () => {
-  const [error, setError] = useState<string | undefined>();
-  const [success, setSuccess] = useState<string | undefined>();
-  const [isPending, startTransition] = useTransition();
+  const [ error, setError ] = useState<string | undefined>();
+  const [ success, setSuccess ] = useState<string | undefined>();
+  const [ isPending, startTransition ] = useTransition();
   const addPost = useStore(state => state.postSlice.addPost);
   const form = useForm<postSchemaType>({
     resolver: zodResolver(postSchema),
@@ -47,9 +47,9 @@ export const PostForm = () => {
     return () => {
       clearTimeout(timeout);
     };
-  }, [error, success]);
+  }, [ error, success ]);
 
-  const onSubmit = async (values: postSchemaType) => {
+  const onSubmit = (values: postSchemaType) => {
     startTransition(async () => {
       const { post, error } = await postUpsertAction(values);
 
@@ -70,7 +70,7 @@ export const PostForm = () => {
   const handleMediaUpload = (results: CloudinaryUploadWidgetResults) => {
     if (typeof results.info !== 'string' && results.info?.secure_url) {
       const currentValue = form.getValues('multimedia');
-      form.setValue('multimedia', [...currentValue, results.info.secure_url]);
+      form.setValue('multimedia', [ ...currentValue, results.info.secure_url ]);
     }
   };
 

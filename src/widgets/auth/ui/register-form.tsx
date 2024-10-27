@@ -21,9 +21,9 @@ import { FormSuccess } from '@/shared/ui/form-success';
 import { Input } from '@/shared/ui/input';
 
 export const RegisterForm = () => {
-  const [isPending, startTransition] = useTransition();
-  const [error, setError] = useState<string | undefined>('');
-  const [success, setSuccess] = useState<string | undefined>('');
+  const [ isPending, startTransition ] = useTransition();
+  const [ error, setError ] = useState<string | undefined>('');
+  const [ success, setSuccess ] = useState<string | undefined>('');
 
   const form = useForm<z.infer<typeof registerSchema>>({
     resolver: zodResolver(registerSchema),

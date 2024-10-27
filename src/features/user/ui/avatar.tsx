@@ -17,26 +17,24 @@ export const UserAvatar = ({
   height = 32,
   size = 'sm',
   alt = 'User avatar',
-}: UserAvatarProps) => {
-  return (
-    <Avatar
-      className={cn(
-        size === 'sm' && 'size-8',
-        size === 'md' && 'size-16',
-        size === 'lg' && 'size-32',
-      )}
-    >
-      {src ? (
-        <Image
-          alt={alt}
-          height={height}
-          src={src}
-          width={width}
-        />
-      ) : undefined}
-      <AvatarFallback>
-        <PersonIcon />
-      </AvatarFallback>
-    </Avatar>
-  );
-};
+}: UserAvatarProps) => (
+  <Avatar
+    className={cn(
+      size === 'sm' && 'size-8',
+      size === 'md' && 'size-16',
+      size === 'lg' && 'size-32',
+    )}
+  >
+    {src ? (
+      <Image
+        alt={alt}
+        height={height}
+        src={src}
+        width={width}
+      />
+    ) : undefined}
+    <AvatarFallback>
+      <PersonIcon />
+    </AvatarFallback>
+  </Avatar>
+);

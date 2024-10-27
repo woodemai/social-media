@@ -13,6 +13,7 @@ export const getCurrentUser = cache(async (): Promise<AuthUser> => {
   if (!session?.user) {
     throw new Error('Not authenticated');
   }
+
   return session.user;
 });
 
@@ -32,8 +33,8 @@ export const getFullCurrentUser = cache(async (): Promise<User> => {
 });
 
 export const getUserById = cache(
-  async (id: string): Promise<FullUser | null> => {
-    return await db.user.findUnique({
+  async (id: string): Promise<FullUser | null> =>
+    await db.user.findUnique({
       where: { id },
       cacheStrategy: {
         ttl: 60 * 60,
@@ -47,8 +48,7 @@ export const getUserById = cache(
           },
         },
       },
-    });
-  },
+    }),
 );
 
 export const getUserByEmail = async (email: string) => {

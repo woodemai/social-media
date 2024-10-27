@@ -22,7 +22,7 @@ const ActionsMenu = dynamic(() =>
 );
 
 export const PostItem = ({ post, isOwner = false }: PostItemProps) => {
-  const [isEditing, setIsEditing] = useState(false);
+  const [ isEditing, setIsEditing ] = useState(false);
 
   return (
     <AnimatePresence>

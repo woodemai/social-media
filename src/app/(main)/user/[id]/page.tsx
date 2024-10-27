@@ -8,12 +8,10 @@ import { UserInfo, UserNotFound } from '@/widgets/user';
 
 import { NoAccess } from './_components/no-access';
 
-const UserPage = async ({
-  params,
-}: RouteParams<{ id: string }, undefined>) => {
+const UserPage = async ({ params }: RouteParams<{ id: string }, undefined>) => {
   const { id } = await params;
 
-  const [user, currentUser, isSubscribed] = await Promise.all([
+  const [ user, currentUser, isSubscribed ] = await Promise.all([
     getUserById(id),
     getCurrentUser(),
     getIsSubscribed(id),

@@ -26,7 +26,7 @@ export const ActionsMenu = ({
   commentId,
   startEditing,
 }: ActionsMenuProps) => {
-  const [isPending, startTransition] = useTransition();
+  const [ isPending, startTransition ] = useTransition();
   const { removeComment } = useStore(state => state.postSlice);
   const { toast } = useToast();
 

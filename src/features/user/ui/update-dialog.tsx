@@ -32,9 +32,9 @@ import { useToast } from '@/shared/ui/use-toast';
 
 export const UpdateDialog = () => {
   const { user, updateUser } = useStore(state => state.userSlice);
-  const [error, setError] = useState<string | undefined>();
-  const [open, setOpen] = useState(false);
-  const [isPending, startTransition] = useTransition();
+  const [ error, setError ] = useState<string | undefined>();
+  const [ open, setOpen ] = useState(false);
+  const [ isPending, startTransition ] = useTransition();
   const { toast } = useToast();
 
   const form = useForm<z.infer<typeof updateSchema>>({
@@ -51,7 +51,7 @@ export const UpdateDialog = () => {
 
   const { id } = user;
 
-  const onSubmit = async (values: z.infer<typeof updateSchema>) => {
+  const onSubmit = (values: z.infer<typeof updateSchema>) => {
     setError(undefined);
     updateUser(values);
     startTransition(async () => {

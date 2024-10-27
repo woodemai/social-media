@@ -13,14 +13,13 @@ type NotificationListProps = {
 export const NotificationList = ({
   notifications: initialNotifications,
 }: NotificationListProps) => {
-  const [notifications, setNotifications] = useState(initialNotifications);
+  const [ notifications, setNotifications ] = useState(initialNotifications);
 
   const handleNotificationRemove = (id: string) => {
     setNotifications(prev =>
       prev.filter(notification => notification.id !== id),
     );
   };
-  console.log('notifications', notifications.length);
 
   if (notifications.length === 0) {
     return <h1>Нет новых уведомлений</h1>;

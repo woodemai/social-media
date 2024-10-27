@@ -13,6 +13,7 @@ type Props = {
 
 export const NavLink = ({ href, children, ...otherProps }: Props) => {
   const pathname = usePathname();
+
   return (
     <Button
       className={cn(pathname === href && 'bg-muted', 'rounded-full')}

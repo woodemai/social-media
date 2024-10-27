@@ -1,3 +1,4 @@
+/* eslint-disable react-compiler/react-compiler */
 'use client';
 
 import { type ReactNode, createContext, useRef, useContext } from 'react';

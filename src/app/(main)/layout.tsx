@@ -5,14 +5,12 @@ type MainLayoutProps = {
   modal: React.ReactNode;
 };
 
-const MainLayout = ({ children, modal }: MainLayoutProps) => {
-  return (
-    <>
-      <Header />
-      {modal}
-      {children}
-    </>
-  );
-};
+const MainLayout = ({ children, modal }: MainLayoutProps) => (
+  <>
+    <Header />
+    {modal}
+    {children}
+  </>
+);
 
 export default MainLayout;

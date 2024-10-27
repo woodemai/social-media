@@ -17,6 +17,7 @@ import { Input } from '@/shared/ui/input';
 
 export const LoginForm = () => {
   const { form, error, success, isPending, onSubmit } = useLogin();
+
   return (
     <CardWrapper
       backButtonHref='/auth/register'

@@ -41,6 +41,7 @@ export const getIsSubscribed = async (id: string) => {
       },
     },
   });
+
   return subscribersWithCurrentUserId > 0;
 };
 
@@ -79,5 +80,6 @@ export const getSubscriptionInfo = async (
   if (!subscriptionInfo) {
     throw new Error('Пользователь не найден');
   }
+
   return subscriptionInfo;
 };

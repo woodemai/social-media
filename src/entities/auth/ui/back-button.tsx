@@ -9,15 +9,13 @@ type BackButtonProps = {
   href: string;
 };
 
-export const BackButton = ({ label, href }: BackButtonProps) => {
-  return (
-    <Button
-      asChild
-      className='w-full font-normal'
-      size='sm'
-      variant='link'
-    >
-      <Link href={href}>{label}</Link>
-    </Button>
-  );
-};
+export const BackButton = ({ label, href }: BackButtonProps) => (
+  <Button
+    asChild
+    className='w-full font-normal'
+    size='sm'
+    variant='link'
+  >
+    <Link href={href}>{label}</Link>
+  </Button>
+);

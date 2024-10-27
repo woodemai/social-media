@@ -21,25 +21,27 @@ export const ListClient = ({
 }: ListClientProps) => {
   const lastRef = useRef<HTMLLIElement>(null);
   const { posts, addPosts, resetPosts } = useStore(state => state.postSlice);
-  const [isPending, startTransition] = useTransition();
-  const [noPosts, setNoPosts] = useState(false);
+  const [ isPending, startTransition ] = useTransition();
+  const [ noPosts, setNoPosts ] = useState(false);
   const page = useRef(1);
 
   useEffect(() => {
     addPosts(initialPosts);
+
     return () => {
       resetPosts();
     };
-  }, [addPosts, initialPosts, resetPosts]);
+  }, [ addPosts, initialPosts, resetPosts ]);
 
   useEffect(() => {
     if (!lastRef.current) return;
 
-    const observer = new IntersectionObserver(([entry]) => {
+    const observer = new IntersectionObserver(([ entry ]) => {
       if (entry?.isIntersecting) {
         startTransition(async () => {
           if (initialPosts.length < PAGE_SIZE) {
             observer.unobserve(entry.target);
+
             return;
           }
           const newPosts = await getPosts({ userId, page: page.current + 1 });
@@ -47,6 +49,7 @@ export const ListClient = ({
           if (newPosts.length === 0) {
             setNoPosts(true);
             observer.unobserve(entry.target);
+
             return;
           }
           addPosts(newPosts);
@@ -56,7 +59,7 @@ export const ListClient = ({
     });
 
     observer.observe(lastRef.current);
-  }, [addPosts, initialPosts.length, page, userId]);
+  }, [ addPosts, initialPosts.length, page, userId ]);
 
   return (
     <ul className='space-y-4'>

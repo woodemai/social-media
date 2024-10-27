@@ -18,24 +18,22 @@ export const CardWrapper = ({
   backButtonLabel,
   backButtonHref,
   showSocial,
-}: CardWrapperProps) => {
-  return (
-    <Card className='w-[400px] shadow-md'>
-      <CardHeader>
-        <Header label={headerLabel} />
-      </CardHeader>
-      <CardContent>{children}</CardContent>
-      {showSocial && (
-        <CardFooter>
-          <Social />
-        </CardFooter>
-      )}
+}: CardWrapperProps) => (
+  <Card className='w-[400px] shadow-md'>
+    <CardHeader>
+      <Header label={headerLabel} />
+    </CardHeader>
+    <CardContent>{children}</CardContent>
+    {showSocial && (
       <CardFooter>
-        <BackButton
-          href={backButtonHref}
-          label={backButtonLabel}
-        />
+        <Social />
       </CardFooter>
-    </Card>
-  );
-};
+    )}
+    <CardFooter>
+      <BackButton
+        href={backButtonHref}
+        label={backButtonLabel}
+      />
+    </CardFooter>
+  </Card>
+);

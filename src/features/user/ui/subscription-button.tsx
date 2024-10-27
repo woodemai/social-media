@@ -12,7 +12,7 @@ export const SubscriptionButton = () => {
     state => state.userSlice,
   );
 
-  const [isPending, startTransition] = useTransition();
+  const [ isPending, startTransition ] = useTransition();
   const { toast } = useToast();
 
   if (!user) return null;

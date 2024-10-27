@@ -19,9 +19,9 @@ import { login, loginSchema } from '@/entities/auth';
  * @property {boolean} isPending - Indicates if a login action is pending.
  */
 export const useLogin = () => {
-  const [error, setError] = useState<string | undefined>('');
-  const [success, setSuccess] = useState<string | undefined>('');
-  const [isPending, startTransition] = useTransition();
+  const [ error, setError ] = useState<string | undefined>('');
+  const [ success, setSuccess ] = useState<string | undefined>('');
+  const [ isPending, startTransition ] = useTransition();
 
   const form = useForm<z.infer<typeof loginSchema>>({
     resolver: zodResolver(loginSchema),

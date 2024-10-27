@@ -38,8 +38,8 @@ export const PostEditForm = ({
   close,
   id,
 }: PostEditFormProps) => {
-  const [error, setError] = useState<string | undefined>();
-  const [isPending, startTransition] = useTransition();
+  const [ error, setError ] = useState<string | undefined>();
+  const [ isPending, startTransition ] = useTransition();
   const { updatePost } = useStore(state => state.postSlice);
 
   const form = useForm<postSchemaType>({
@@ -50,7 +50,7 @@ export const PostEditForm = ({
   const handleMediaUpload = (results: CloudinaryUploadWidgetResults) => {
     if (typeof results.info !== 'string' && results.info?.secure_url) {
       const currentValue = form.getValues('multimedia');
-      form.setValue('multimedia', [...currentValue, results.info.secure_url]);
+      form.setValue('multimedia', [ ...currentValue, results.info.secure_url ]);
     }
   };
 

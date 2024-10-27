@@ -20,7 +20,7 @@ export const NotificationItem = ({
   onNotificationRemove,
 }: NotificationItemProps) => {
   const { toast } = useToast();
-  const [isPending, startTransition] = useTransition();
+  const [ isPending, startTransition ] = useTransition();
 
   const handleAccept = () => {
     startTransition(async () => {

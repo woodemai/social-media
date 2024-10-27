@@ -28,7 +28,7 @@ export const CommentEditForm = ({
   commentId,
   postId,
 }: CommentEditFormProps) => {
-  const [isPending, startTransition] = useTransition();
+  const [ isPending, startTransition ] = useTransition();
   const { updateComment } = useStore(state => state.postSlice);
 
   const form = useForm<commentSchemaType>({

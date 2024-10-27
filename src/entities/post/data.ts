@@ -18,6 +18,7 @@ const getAuthor = ({
       id: selectedUserId,
     };
   }
+
   return {
     OR: [
       {
@@ -34,7 +35,7 @@ const getAuthor = ({
   };
 };
 
-interface getPostsProps {
+type getPostsProps = {
   userId?: string;
   page?: number;
 }
@@ -53,7 +54,7 @@ export const getPosts = async ({
   return db.post.findMany({
     cacheStrategy: {
       ttl: 60 * 60,
-      swr: 60
+      swr: 60,
     },
     skip: (page - 1) * PAGE_SIZE,
     take: PAGE_SIZE,

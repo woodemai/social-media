@@ -20,7 +20,7 @@ export const SubscriptionMenuModal = ({
   tab,
   subscriptionInfo,
 }: SubscriptionMenuProps) => {
-  const [open, setOpen] = useState(true);
+  const [ open, setOpen ] = useState(true);
   const router = useRouter();
 
   const handleOpen = () => {

@@ -17,7 +17,7 @@ import { useToast } from '@/shared/ui/use-toast';
 
 export const CommentForm = ({ postId }: { postId: string }) => {
   const user = useCurrentUser();
-  const [isPending, startTransition] = useTransition();
+  const [ isPending, startTransition ] = useTransition();
   const { toast } = useToast();
   const { addComment } = useStore(state => state.postSlice);
 

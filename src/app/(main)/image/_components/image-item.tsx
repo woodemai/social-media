@@ -8,6 +8,7 @@ import { Button } from '@/shared/ui/button';
 
 const ImageItem = ({ url }: { url: string }) => {
   const router = useRouter();
+
   return (
     <div className='relative'>
       <Image

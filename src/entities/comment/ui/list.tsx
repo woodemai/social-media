@@ -7,17 +7,15 @@ type CommentListProps = {
   comments: FullComment[];
 };
 
-export const CommentList = ({ comments, postId }: CommentListProps) => {
-  return (
-    <ul className='space-y-4'>
-      {comments.map(comment => (
-        <li key={comment.id}>
-          <CommentItem
-            postId={postId}
-            comment={comment}
-          />
-        </li>
-      ))}
-    </ul>
-  );
-};
+export const CommentList = ({ comments, postId }: CommentListProps) => (
+  <ul className='space-y-4'>
+    {comments.map(comment => (
+      <li key={comment.id}>
+        <CommentItem
+          postId={postId}
+          comment={comment}
+        />
+      </li>
+    ))}
+  </ul>
+);

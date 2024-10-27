@@ -130,6 +130,7 @@ export const postUpsertAction = async (
 
 export const likePostAction = async (id: string) => {
   const user = await getCurrentUser();
+
   return db.post.update({
     where: {
       id,
@@ -185,8 +186,7 @@ export const unlikePostAction = async (id: string) => {
   });
 };
 
-export const deleteAction = async (id: string) => {
-  return db.post.delete({
+export const deleteAction = async (id: string) =>
+  db.post.delete({
     where: { id },
   });
-};

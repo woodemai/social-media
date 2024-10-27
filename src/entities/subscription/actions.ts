@@ -38,13 +38,12 @@ export const subscribeAcceptAction = async (
 
 export const subscribeRejectAction = async (
   subscriptionRequest: FullSubscriptionRequest,
-) => {
-  return db.subscriptionRequest.delete({
+) =>
+  db.subscriptionRequest.delete({
     where: {
       id: subscriptionRequest.id,
     },
   });
-};
 
 export const subscribeAction = async (
   id: string,
@@ -72,6 +71,7 @@ export const subscribeAction = async (
           requestToId: user.id,
         },
       });
+
       return {
         request: newSubscriptionRequest,
       };
@@ -84,6 +84,7 @@ export const subscribeAction = async (
     const subscribers = isSubscribed
       ? { disconnect: { id: currentUser.id } }
       : { connect: { id: currentUser.id } };
+
     return {
       user: await db.user.update({
         where: {

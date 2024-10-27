@@ -27,6 +27,7 @@ export const defaultInitialState: StoreState = {
 
 export const getStore = (initialState: StoreState = defaultInitialState) => {
   const { postSlice, userSlice } = initialState;
+
   return createStore<Store>()(set => ({
     userSlice: {
       ...userSlice,
@@ -47,6 +48,7 @@ export const getStore = (initialState: StoreState = defaultInitialState) => {
             if (bio) userSlice.user.bio = bio;
             if (isPrivate) userSlice.user.isPrivate = isPrivate;
           }
+
           return { userSlice: { ...userSlice, user: userSlice.user } };
         });
       },
@@ -57,7 +59,7 @@ export const getStore = (initialState: StoreState = defaultInitialState) => {
         set(({ postSlice }) => ({
           postSlice: {
             ...postSlice,
-            posts: [post, ...postSlice.posts],
+            posts: [ post, ...postSlice.posts ],
           },
         }));
       },
@@ -70,6 +72,7 @@ export const getStore = (initialState: StoreState = defaultInitialState) => {
                 if (post.id === id) {
                   return { ...post, ...updatedData };
                 }
+
                 return post;
               }),
             ],
@@ -82,8 +85,9 @@ export const getStore = (initialState: StoreState = defaultInitialState) => {
             ...postSlice,
             posts: postSlice.posts.map(post => {
               if (post.id === postId) {
-                return { ...post, comments: [...post.comments, comment] };
+                return { ...post, comments: [ ...post.comments, comment ] };
               }
+
               return post;
             }),
           },
@@ -101,10 +105,12 @@ export const getStore = (initialState: StoreState = defaultInitialState) => {
                     if (comment.id === commentId) {
                       return { ...comment, ...updatedData };
                     }
+
                     return comment;
                   }),
                 };
               }
+
               return post;
             }),
           },
@@ -123,6 +129,7 @@ export const getStore = (initialState: StoreState = defaultInitialState) => {
                   ),
                 };
               }
+
               return post;
             }),
           },
@@ -132,7 +139,7 @@ export const getStore = (initialState: StoreState = defaultInitialState) => {
         set(({ postSlice }) => ({
           postSlice: {
             ...postSlice,
-            posts: [...postSlice.posts, ...posts],
+            posts: [ ...postSlice.posts, ...posts ],
           },
         }));
       },
