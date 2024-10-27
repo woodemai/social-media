@@ -1,13 +1,21 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
+import { Link } from 'next-view-transitions';
 import { useState } from 'react';
 
 import {
   type SubscriptionInfo,
   type SubscriptionTabs,
 } from '@/entities/subscription';
-import { Dialog, DialogContent } from '@/shared/ui/dialog';
+import { Button } from '@/shared/ui/button';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from '@/shared/ui/dialog';
 
 import { SubscriptionMenu } from './menu';
 
@@ -39,6 +47,24 @@ export const SubscriptionMenuModal = ({
       onOpenChange={handleOpen}
     >
       <DialogContent className='border-none bg-transparent shadow-none'>
+        <DialogHeader>
+          <DialogTitle>
+            {'Информация о '}
+            <Button
+              asChild
+              variant='link'
+              size='lg'
+              className='p-0 text-lg font-semibold'
+            >
+              <Link href={`/user/${subscriptionInfo.id}`}>
+                {subscriptionInfo.name}
+              </Link>
+            </Button>
+          </DialogTitle>
+          <DialogDescription>
+            Нажмите на пользователя, чтобы просмотреть информацию о нем
+          </DialogDescription>
+        </DialogHeader>
         <SubscriptionMenu
           subscriptionInfo={subscriptionInfo}
           closeDialog={handleOpen}

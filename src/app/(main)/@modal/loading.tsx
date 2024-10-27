@@ -1,9 +1,9 @@
-import { Suspense } from 'react';
+import { Loader2 } from 'lucide-react';
 
-import { type WithChildren } from '@/shared/types';
-
-const Loading = ({ children }: WithChildren<undefined>) => (
-  <Suspense fallback={<div>Loading...</div>}>{children}</Suspense>
+const Loading = () => (
+  <div className='fixed flex h-screen w-screen items-center justify-center bg-black/50'>
+    <Loader2 className='animate-spin' />
+  </div>
 );
 
 export default Loading;
