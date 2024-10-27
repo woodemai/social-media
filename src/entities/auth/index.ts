@@ -1,5 +1,3 @@
-import { login, register } from './actions';
-import { loginSchema, registerSchema } from './schemas';
-import { Header } from './ui/header';
-
-export { Header, login, register, loginSchema, registerSchema };
+export * from './actions';
+export * from './schemas';
+export * from './ui';

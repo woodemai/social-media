@@ -3,8 +3,7 @@
 import { useEffect } from 'react';
 
 import { useStore } from '@/config/store';
-import { SubscriptionTabs } from '@/entities/subscription/types';
-import { SubscriptionCount } from '@/entities/subscription/ui/count';
+import { SubscriptionTabs, SubscriptionCount } from '@/entities/subscription';
 import { type FullUser } from '@/entities/user';
 import { SubscriptionButton, UpdateDialog, UserAvatar } from '@/features/user';
 

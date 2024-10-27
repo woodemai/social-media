@@ -1,7 +1,7 @@
 import { Cross1Icon } from '@radix-ui/react-icons';
 import Image from 'next/image';
 
-import { VideoItem } from '@/entities/post';
+import { VideoItem } from '@/entities/post/client';
 import { Button } from '@/shared/ui/button';
 
 type FormMediaListProps = {

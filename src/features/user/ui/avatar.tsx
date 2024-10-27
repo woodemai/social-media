@@ -1,6 +1,7 @@
 import { PersonIcon } from '@radix-ui/react-icons';
+import Image from 'next/image';
 
-import { Avatar, AvatarFallback, AvatarImage } from '@/shared/ui/avatar';
+import { Avatar, AvatarFallback } from '@/shared/ui/avatar';
 import { cn } from '@/shared/utils';
 type UserAvatarProps = {
   src?: string | null;
@@ -26,9 +27,8 @@ export const UserAvatar = ({
       )}
     >
       {src ? (
-        <AvatarImage
+        <Image
           alt={alt}
-          className='m-0'
           height={height}
           src={src}
           width={width}

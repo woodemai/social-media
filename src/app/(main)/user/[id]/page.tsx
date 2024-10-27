@@ -1,21 +1,17 @@
 import { Suspense } from 'react';
 
 import { getIsSubscribed } from '@/entities/subscription';
-import { getCurrentUser } from '@/entities/user';
-import { getUserById } from '@/entities/user/data';
+import { getCurrentUser, getUserById } from '@/entities/user';
+import { type RouteParams } from '@/shared/types';
 import { ListSkeleton, PostForm, PostList } from '@/widgets/post';
 import { UserInfo, UserNotFound } from '@/widgets/user';
 
-type UserPageProps = {
-  params: Promise<{
-    id: string;
-  }>;
-};
+import { NoAccess } from './_components/no-access';
 
-const UserPage = async (props: UserPageProps) => {
-  const params = await props.params;
-
-  const { id } = params;
+const UserPage = async ({
+  params,
+}: RouteParams<{ id: string }, undefined>) => {
+  const { id } = await params;
 
   const [user, currentUser, isSubscribed] = await Promise.all([
     getUserById(id),
@@ -36,21 +32,13 @@ const UserPage = async (props: UserPageProps) => {
           user={user}
         />
       )}
-      {isOwner ? <PostForm /> : null}
+      {isOwner && <PostForm />}
       {isShowingPosts ? (
         <Suspense fallback={<ListSkeleton />}>
           <PostList userId={id} />
         </Suspense>
       ) : (
-        <div className='flex flex-col items-center justify-center gap-y-4 text-center text-primary'>
-          <span className='text-3xl'>🔒</span>
-          <h1 className='text-3xl font-bold tracking-tight'>
-            Приватный профиль
-          </h1>
-          <p className='text-muted-foreground'>
-            Подпишитесь чтобы смотреть посты
-          </p>
-        </div>
+        <NoAccess />
       )}
     </>
   );

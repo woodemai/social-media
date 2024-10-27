@@ -4,7 +4,8 @@ import { AnimatePresence, motion } from 'framer-motion';
 import dynamic from 'next/dynamic';
 import { useState } from 'react';
 
-import { type FullPost, MediaList, Social } from '@/entities/post';
+import { type FullPost, MediaList } from '@/entities/post';
+import { Social } from '@/entities/post/client';
 import { ProfileLink } from '@/features/user/ui/profile-link';
 
 import { PostEditForm } from './edit-form';
@@ -15,7 +16,9 @@ type PostItemProps = {
 };
 
 const ActionsMenu = dynamic(() =>
-  import('@/entities/post').then(mob => mob.ActionsMenu),
+  import('@/entities/post/client').then(mob => ({
+    default: mob.ActionsMenu,
+  })),
 );
 
 export const PostItem = ({ post, isOwner = false }: PostItemProps) => {

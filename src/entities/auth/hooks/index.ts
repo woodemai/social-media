@@ -3,8 +3,8 @@ import { useState, useTransition } from 'react';
 import { useForm } from 'react-hook-form';
 import type * as z from 'zod';
 
-import { login } from '@/entities/auth/actions';
-import { loginSchema } from '@/entities/auth/schemas';
+import { login, loginSchema } from '@/entities/auth';
+
 /**
  * `useLogin` is a custom hook that manages the login state and interactions.
  *

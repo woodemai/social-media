@@ -6,7 +6,7 @@ import {
 import { useTransition } from 'react';
 
 import { useStore } from '@/config/store';
-import { removeCommentAction } from '@/entities/comment/actions';
+import { removeCommentAction } from '@/entities/comment';
 import { Button } from '@/shared/ui/button';
 import {
   DropdownMenu,

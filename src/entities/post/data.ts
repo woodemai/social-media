@@ -51,6 +51,10 @@ export const getPosts = async ({
   const user = await getCurrentUser();
 
   return db.post.findMany({
+    cacheStrategy: {
+      ttl: 60 * 60,
+      swr: 60
+    },
     skip: (page - 1) * PAGE_SIZE,
     take: PAGE_SIZE,
     where: {

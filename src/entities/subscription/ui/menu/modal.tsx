@@ -6,7 +6,7 @@ import { useState } from 'react';
 import {
   type SubscriptionInfo,
   type SubscriptionTabs,
-} from '@/entities/subscription/types';
+} from '@/entities/subscription';
 import { Dialog, DialogContent } from '@/shared/ui/dialog';
 
 import { SubscriptionMenu } from './menu';
@@ -40,9 +40,9 @@ export const SubscriptionMenuModal = ({
     >
       <DialogContent className='border-none bg-transparent shadow-none'>
         <SubscriptionMenu
+          subscriptionInfo={subscriptionInfo}
           closeDialog={handleOpen}
           tab={tab}
-          subscriptionInfo={subscriptionInfo}
         />
       </DialogContent>
     </Dialog>

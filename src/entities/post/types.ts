@@ -1,6 +1,6 @@
 import { type Post, type User } from '@prisma/client';
 
-import { type FullComment } from '@/entities/comment/types';
+import { type FullComment } from '@/entities/comment';
 
 export type FullPost = {
   author: Pick<User, 'name' | 'image'>;

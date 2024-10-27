@@ -3,7 +3,7 @@ import { Link } from 'next-view-transitions';
 import {
   type UserNameAndId,
   type SubscriptionTabs,
-} from '@/entities/subscription/types';
+} from '@/entities/subscription';
 import { UserAvatar } from '@/features/user';
 import { Button } from '@/shared/ui/button';
 import { ScrollArea } from '@/shared/ui/scroll-area';

@@ -5,8 +5,7 @@ import { useState, useTransition } from 'react';
 import { useForm } from 'react-hook-form';
 import type * as z from 'zod';
 
-import { registerSchema } from '@/entities/auth';
-import { register } from '@/entities/auth/actions';
+import { registerSchema, register } from '@/entities/auth';
 import { CardWrapper } from '@/features/auth';
 import { Button } from '@/shared/ui/button';
 import {

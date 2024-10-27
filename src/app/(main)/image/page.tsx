@@ -1,15 +1,11 @@
+import { type RouteParams } from '@/shared/types';
+
 import ImageItem from './_components/image-item';
 
-type SubscriptionModalPageProps = {
-  searchParams: Promise<{
-    url: string;
-  }>;
-};
-
-const SubscriptionModalPage = async (props: SubscriptionModalPageProps) => {
-  const searchParams = await props.searchParams;
-
-  const { url } = searchParams;
+const SubscriptionModalPage = async ({
+  searchParams,
+}: RouteParams<undefined, { url: string }>) => {
+  const { url } = await searchParams;
 
   return (
     <div className='flex size-full items-center justify-center'>

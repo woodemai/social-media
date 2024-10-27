@@ -1,4 +1,4 @@
-import { type FullComment } from '@/entities/comment/types';
+import { type FullComment } from '@/entities/comment';
 import { type FullPost } from '@/entities/post';
 
 export type PostState = {

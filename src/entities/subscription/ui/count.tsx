@@ -1,6 +1,6 @@
 import { Link } from 'next-view-transitions';
 
-import { SubscriptionTabs } from '@/entities/subscription/types';
+import { SubscriptionTabs } from '@/entities/subscription';
 import { Button } from '@/shared/ui/button';
 
 export const SubscriptionCount = ({

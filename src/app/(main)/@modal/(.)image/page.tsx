@@ -1,15 +1,11 @@
-import ImageDialog from '@/app/(main)/@modal/(.)image/_components/image-dialog';
+import { type RouteParams } from '@/shared/types';
 
-type ImageModalPageProps = {
-  searchParams: Promise<{
-    url: string;
-  }>;
-};
+import ImageDialog from './_components/image-dialog';
 
-const ImageModalPage = async (props: ImageModalPageProps) => {
-  const searchParams = await props.searchParams;
-
-  const { url } = searchParams;
+const ImageModalPage = async ({
+  searchParams,
+}: RouteParams<undefined, { url: string }>) => {
+  const { url } = await searchParams;
 
   return <ImageDialog url={url} />;
 };

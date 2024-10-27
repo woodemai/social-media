@@ -3,7 +3,7 @@ import { Link } from 'next-view-transitions';
 import {
   type SubscriptionInfo,
   SubscriptionTabs,
-} from '@/entities/subscription/types';
+} from '@/entities/subscription';
 import { Button } from '@/shared/ui/button';
 import { Tabs, TabsList, TabsTrigger } from '@/shared/ui/tabs';
 
@@ -15,10 +15,10 @@ type SubscriptionMenuProps = {
   closeDialog?: () => void;
 };
 
-export const SubscriptionMenu = ({
+export const SubscriptionMenu = async ({
   tab,
+  subscriptionInfo: { name, subscribed, subscribers, id },
   closeDialog,
-  subscriptionInfo: { subscribed, subscribers, name, id },
 }: SubscriptionMenuProps) => {
   return (
     <Tabs defaultValue={tab}>

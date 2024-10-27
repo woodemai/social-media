@@ -7,7 +7,7 @@ import { type z } from 'zod';
 import { signIn } from '@/auth';
 import { db } from '@/config/prisma';
 import { DEFAULT_LOGIN_REDIRECT } from '@/config/routes';
-import { getUserByEmail } from '@/entities/user/data';
+import { getUserByEmail } from '@/entities/user';
 
 import { loginSchema, registerSchema } from './schemas';
 

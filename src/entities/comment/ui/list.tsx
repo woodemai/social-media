@@ -1,4 +1,4 @@
-import { type FullComment } from '@/entities/comment/types';
+import { type FullComment } from '@/entities/comment';
 
 import { CommentItem } from './item';
 

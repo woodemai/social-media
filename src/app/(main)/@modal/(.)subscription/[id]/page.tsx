@@ -1,32 +1,16 @@
-import { getSubscriptionInfo } from '@/entities/subscription/data';
-import { type SubscriptionTabs } from '@/entities/subscription/types';
-import { SubscriptionMenuModal } from '@/entities/subscription/ui/menu/modal';
+import { Suspense } from 'react';
 
-type SubscriptionModalPageProps = {
-  params: Promise<{
-    id: string;
-  }>;
-  searchParams: Promise<{
-    tab: SubscriptionTabs;
-  }>;
-};
+import { type SubscriptionTabs } from '@/entities/subscription';
+import { type RouteParams } from '@/shared/types';
 
-const SubscriptionModalPage = async (props: SubscriptionModalPageProps) => {
-  const searchParams = await props.searchParams;
+import { ModalWrapper } from './_components/modal-wrapper';
 
-  const { tab } = searchParams;
-
-  const params = await props.params;
-
-  const { id } = params;
-
-  const subscriptionInfo = await getSubscriptionInfo(id);
+const SubscriptionModalPage = async (props: RouteParams<{ id: string }, { tab: SubscriptionTabs }>) => {
 
   return (
-    <SubscriptionMenuModal
-      tab={tab}
-      subscriptionInfo={subscriptionInfo}
-    />
+    <Suspense fallback='Loading'>
+      <ModalWrapper {...props} />
+    </Suspense>
   );
 };
 

@@ -10,8 +10,8 @@ import { useEffect, useState, useTransition } from 'react';
 import { useForm, useWatch } from 'react-hook-form';
 
 import { useStore } from '@/config/store';
-import { postUpsertAction } from '@/entities/post/actions';
-import { postSchema, type postSchemaType } from '@/entities/post/schemas';
+import { postUpsertAction } from '@/entities/post';
+import { postSchema, type postSchemaType } from '@/entities/post';
 import { FormMediaList } from '@/features/post/ui/form-media-list';
 import { Button } from '@/shared/ui/button';
 import {
